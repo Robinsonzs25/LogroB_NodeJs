@@ -1,0 +1,43 @@
+
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+
+<div class="col-md-10">
+    <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Total de Sueldos Pagados</h3>
+        </div>
+           <div class="card-body">
+            <table class="table table-striped projects col-md-10 offset-md-1">
+              <thead>
+                <tr>
+                  <th>Fecha de Contratación</th>
+                  <th>Total en dólares de salarios pagados</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% empleadosPorFecha.forEach((empleado) => { %>
+                  <tr>
+                    <td><%= new Date(empleado.fechaContratacion).toLocaleDateString('es-ES', {
+                      day: 'numeric',
+                      month: 'numeric',
+                      year: 'numeric',
+                    }) %></td>
+                    <td>$<%= empleado.totalSalarios %></td>
+                  </tr>
+                <% }); %>
+                <tr>
+                  <td>Total general en dólares de salarios pagados:</td>
+                  <td>$<%= totalSalariosGeneral %></td>
+                </tr>
+              </tbody>
+            </table>
+           </div>
+    </div>
+</div>
+
